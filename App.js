@@ -5,6 +5,7 @@ import * as Font from 'expo-font';
 
 // Components & Styles
 import Header from './components/Header';
+import RetroWindow from './components/RetroWindow';
 import styles from './style.module.css';
 
 // Assets
@@ -31,7 +32,6 @@ export default function App() {
     return null; 
   }
 
-  // The return must be INSIDE the App function braces
   return (
     <ImageBackground 
       source={bgImage} 
@@ -52,11 +52,69 @@ export default function App() {
             </Text>
           </View>
 
-          <View style={localStyles.retroBox}>
-            <Text style={localStyles.statusText}>[ system status: online ]</Text>
-            <Text style={localStyles.bodyText}>
-              Build v0.8.0 Active. Fetching modules...
-            </Text>
+          {/* Windows Section */}
+          <View style={localStyles.windowContainer}>
+            
+            <RetroWindow title="system_properties.exe">
+              <Text style={localStyles.statusText}>User: Salem Arya Freya</Text>
+              <Text style={localStyles.bodyText}>
+                Lead Sport Club Supervisor @ UCF{"\n"}
+                Adult CPR Certified{"\n"}
+                Specialization: Risk & Injury Management
+              </Text>
+            </RetroWindow>
+
+            <RetroWindow title="active_projects.dll">
+              <Text style={localStyles.bodyText}>
+                {">"} Retro Quiz v0.7 [Running]{"\n"}
+                {">"} Godot Platformer [Compiling]{"\n"}
+                {">"} Portfolio Build v0.8.0 [Stable]
+              </Text>
+            </RetroWindow>
+
+            <RetroWindow title="terminal.bat">
+              <Text style={localStyles.bodyText}>
+                System Initialized...{"\n"}
+                All assets loaded successfully.{"\n"}
+                Ready for user input.
+              </Text>
+            </RetroWindow>
+
+          </View>
+
+          <View style={localStyles.windowContainer}>
+  
+            <RetroWindow title="biography.txt">
+              <Text style={localStyles.statusText}>SALEM ARYA FREYA</Text>
+              <Text style={localStyles.bodyText}>
+                Lead Sport Club Supervisor @ UCF Recreation and Wellness Center. 
+                Specializing in risk management and guest safety.
+              </Text>
+            </RetroWindow>
+
+            <RetroWindow title="c:/projects/godot_dev">
+              <Text style={localStyles.bodyText}>
+                Currently developing a 2D side-scrolling platformer. 
+                Focusing on:
+              </Text>
+              <Text style={localStyles.bodyText}>• Sprite Animation</Text>
+              <Text style={localStyles.bodyText}>• Gravity Mechanics</Text>
+              <Text style={localStyles.bodyText}>• Retro UI scaling</Text>
+            </RetroWindow>
+
+            <RetroWindow title="github_repos.exe">
+              <TouchableOpacity onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}>
+                <Text style={localStyles.bodyText} className={styles.projectLink}>
+                  {">"} View Retro Quiz v0.7
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}>
+                <Text style={localStyles.bodyText} className={styles.projectLink}>
+                  {">"} View Pawmate UI Case Study
+                </Text>
+              </TouchableOpacity>
+            </RetroWindow>
+
           </View>
 
           <View style={localStyles.footer}>
@@ -120,24 +178,22 @@ const localStyles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 1,
   },
-  retroBox: {
-    padding: 20,
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: '#d0a0a3',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  windowContainer: {
+    width: '100%',
+    gap: 10, // Adds space between each RetroWindow
   },
   statusText: {
     color: '#A30262',
     fontFamily: 'W95FA',
     fontSize: 14,
     marginBottom: 5,
+    fontWeight: 'bold',
   },
   bodyText: {
     color: '#A30262',
     fontFamily: 'W95FA',
     fontSize: 12,
-    lineHeight: 18,
+    lineHeight: 20,
   },
   footer: {
     marginTop: 40,

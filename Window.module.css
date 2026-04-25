@@ -1,0 +1,56 @@
+/* Window.module.css */
+.windowFrame {
+  background-color: #fce4ec; /* Light pink interior */
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #a30262;
+  border-bottom: 2px solid #a30262;
+  padding: 2px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.titleBar {
+  background-color: #d0a0a3; /* Dusty rose title bar */
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleText {
+  color: white;
+  font-family: 'W95FA';
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.button {
+  width: 16px;
+  height: 16px;
+  background-color: #fce4ec;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #a30262;
+  border-bottom: 1px solid #a30262;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonText {
+  font-size: 10px;
+  font-family: 'W95FA';
+  color: #a30262;
+}
+
+.content {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
