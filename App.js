@@ -8,7 +8,6 @@ import Header from './components/Header';
 import styles from './style.module.css';
 
 // Assets
-// If your folder is named 'assets', use this:
 import bgImage from './assets/smoon_bg.png';
 
 export default function App() {
@@ -32,6 +31,7 @@ export default function App() {
     return null; 
   }
 
+  // The return must be INSIDE the App function braces
   return (
     <ImageBackground 
       source={bgImage} 
@@ -41,12 +41,10 @@ export default function App() {
       <ScrollView contentContainerStyle={localStyles.scrollWrapper}>
         <StatusBar style="auto" />
         
-        {/* Main Content Container */}
+        {/* Main Glassmorphism Container */}
         <View style={localStyles.mainContainer}>
-          
           <Header />
-
-          {/* Intro Banner Section */}
+          
           <View style={localStyles.banner}>
             <Text style={localStyles.title}>salem arya freya</Text>
             <Text style={localStyles.subtitle}>
@@ -54,21 +52,18 @@ export default function App() {
             </Text>
           </View>
 
-          {/* Content Area */}
           <View style={localStyles.retroBox}>
-            <Text style={localStyles.statusText}>
-              [ system status: online ]
-            </Text>
+            <Text style={localStyles.statusText}>[ system status: online ]</Text>
             <Text style={localStyles.bodyText}>
-              System Initialized... Build v0.8.0 Active. Preparing to load project modules from GitHub.
+              Build v0.8.0 Active. Fetching modules...
             </Text>
           </View>
 
           <View style={localStyles.footer}>
             <Text style={localStyles.footerText}>© 2026 saturnianmoons.exe</Text>
           </View>
-
         </View>
+
       </ScrollView>
     </ImageBackground>
   );
