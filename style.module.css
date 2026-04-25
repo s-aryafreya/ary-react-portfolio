@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  max-width: 777px;
+  padding: 25px;
+  background: rgba(255, 230, 235, 0.85);
+  border-radius: 7px;
+  border: 2px solid #f8bbd0;
+  backdrop-filter: blur(5px);
+  min-height: 80vh;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* style.module.css */
+:global(body) {
+  background-color: #fce4ec;
+  /* Make sure the path exactly matches your folder name 'assets' */
+  background-image: url('./assets/smoon_bg.png'); 
+  background-repeat: repeat;
+  background-attachment: fixed;
+  margin: 0;
+}

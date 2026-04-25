@@ -1,0 +1,25 @@
+/* src/index.css */
+@font-face {
+    font-family: "W95FA";
+    src: url('./assets/W95FA.otf');
+}
+
+body {
+    background-color: #fce4ec; 
+    background-image: url('./assets/smoon_bg.png');
+    background-repeat: repeat; 
+    background-attachment: fixed;
+    margin: 0;
+    font-family: "W95FA", Tahoma, sans-serif !important;
+}
+
+#container-wrapper {
+    max-width: 777px; 
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255, 230, 235, 0.85); 
+    border-radius: 7px; 
+    border: 2px solid #f8bbd0;
+    backdrop-filter: blur(5px);
+    min-height: 80vh;
+}
