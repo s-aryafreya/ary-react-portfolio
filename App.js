@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 
-// Components & Styles
+// Components
 import Header from './components/Header';
 import RetroWindow from './components/RetroWindow';
-import styles from './style.module.css';
 
 // Assets
 import bgImage from './assets/smoon_bg.png';
@@ -55,64 +54,43 @@ export default function App() {
           {/* Windows Section */}
           <View style={localStyles.windowContainer}>
             
-            <RetroWindow title="system_properties.exe">
-              <Text style={localStyles.statusText}>User: Salem Arya Freya</Text>
-              <Text style={localStyles.bodyText}>
-                Lead Sport Club Supervisor @ UCF{"\n"}
-                Adult CPR Certified{"\n"}
-                Specialization: Risk & Injury Management
-              </Text>
-            </RetroWindow>
-
-            <RetroWindow title="active_projects.dll">
-              <Text style={localStyles.bodyText}>
-                {">"} Retro Quiz v0.7 [Running]{"\n"}
-                {">"} Godot Platformer [Compiling]{"\n"}
-                {">"} Portfolio Build v0.8.0 [Stable]
-              </Text>
-            </RetroWindow>
-
-            <RetroWindow title="terminal.bat">
-              <Text style={localStyles.bodyText}>
-                System Initialized...{"\n"}
-                All assets loaded successfully.{"\n"}
-                Ready for user input.
-              </Text>
-            </RetroWindow>
-
-          </View>
-
-          <View style={localStyles.windowContainer}>
-  
             <RetroWindow title="biography.txt">
-              <Text style={localStyles.statusText}>SALEM ARYA FREYA</Text>
+              <Text style={localStyles.statusText}>Lead Sport Club Supervisor @ UCF</Text>
               <Text style={localStyles.bodyText}>
-                Lead Sport Club Supervisor @ UCF Recreation and Wellness Center. 
-                Specializing in risk management and guest safety.
+                Specializing in risk and injury management. Adult CPR Certified. 
+                Focusing on guest safety and high-energy leadership.
               </Text>
             </RetroWindow>
 
             <RetroWindow title="c:/projects/godot_dev">
               <Text style={localStyles.bodyText}>
-                Currently developing a 2D side-scrolling platformer. 
-                Focusing on:
+                Developing a 2D side-scrolling platformer.
               </Text>
-              <Text style={localStyles.bodyText}>• Sprite Animation</Text>
-              <Text style={localStyles.bodyText}>• Gravity Mechanics</Text>
+              <Text style={localStyles.bodyText}>• Sprite Animation & Gravity Mechanics</Text>
               <Text style={localStyles.bodyText}>• Retro UI scaling</Text>
             </RetroWindow>
 
             <RetroWindow title="github_repos.exe">
-              <TouchableOpacity onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}>
-                <Text style={localStyles.bodyText} className={styles.projectLink}>
-                  {">"} View Retro Quiz v0.7
-                </Text>
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}>
-                <Text style={localStyles.bodyText} className={styles.projectLink}>
-                  {">"} View Pawmate UI Case Study
-                </Text>
+              
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Pawmate UI Case Study</Text>
               </TouchableOpacity>
+            </RetroWindow>
+
+            <RetroWindow title="terminal.bat">
+              <Text style={localStyles.bodyText}>
+                System Initialized...{"\n"}
+                Build v0.8.0 Active. All modules stable.
+              </Text>
             </RetroWindow>
 
           </View>
@@ -180,7 +158,7 @@ const localStyles = StyleSheet.create({
   },
   windowContainer: {
     width: '100%',
-    gap: 10, // Adds space between each RetroWindow
+    gap: 15, 
   },
   statusText: {
     color: '#A30262',
@@ -194,6 +172,19 @@ const localStyles = StyleSheet.create({
     fontFamily: 'W95FA',
     fontSize: 12,
     lineHeight: 20,
+  },
+  linkAction: {
+    marginTop: 8,
+    padding: 4,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: '#A30262',
+    backgroundColor: 'rgba(163, 2, 98, 0.05)',
+  },
+  linkText: {
+    color: '#A30262',
+    fontFamily: 'W95FA',
+    fontSize: 12,
   },
   footer: {
     marginTop: 40,
