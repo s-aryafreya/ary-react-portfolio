@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 
@@ -9,6 +9,17 @@ import RetroWindow from './components/RetroWindow';
 
 // Assets
 import bgImage from './assets/smoon_bg.png';
+import qim1 from './assets/q1.png';
+import qim2 from './assets/q2.png';
+import qim3 from './assets/q3.png';
+import tdim1 from './assets/td1.png';
+import tdim2 from './assets/td2.png';
+import tdim3 from './assets/td3.png';
+import exim1 from './assets/ex1.png';
+import exim2 from './assets/ex2.png';
+import exim3 from './assets/ex3.png';
+import exim4 from './assets/ex4.png';
+
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -54,42 +65,81 @@ export default function App() {
           {/* Windows Section */}
           <View style={localStyles.windowContainer}>
             
-            <RetroWindow title="biography.txt">
-              <Text style={localStyles.statusText}>Lead Sport Club Supervisor @ UCF</Text>
+            <RetroWindow title="about-me.txt">
+              <Text style={localStyles.statusText}>Sport Club Council President @ UCF</Text>
               <Text style={localStyles.bodyText}>
-                Specializing in risk and injury management. Adult CPR Certified. 
-                Focusing on guest safety and high-energy leadership.
+                Hello my name is Salem, but everyone calls me Ary, I'm am about to be a senior @ UCF and play for the D1 Women's Ultimate Club
+                {"\n"}
+                {"\n"}
+                Specializing web development, game development, competitive athletics, risk and injury management. Adult CPR Certified. 
+                Focusing on creativity and leadership in all avenues.
               </Text>
             </RetroWindow>
 
-            <RetroWindow title="c:/projects/godot_dev">
-              <Text style={localStyles.bodyText}>
-                Developing a 2D side-scrolling platformer.
-              </Text>
-              <Text style={localStyles.bodyText}>• Sprite Animation & Gravity Mechanics</Text>
-              <Text style={localStyles.bodyText}>• Retro UI scaling</Text>
-            </RetroWindow>
-
-            <RetroWindow title="github_repos.exe">
+            <RetroWindow title="projects.exe">
+              {/* APP 1: RETRO QUIZ */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
-                onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}
+                onPress={() => window.open('https://s-aryafreya.github.io/quiz-app/', '_blank')}
               >
-                <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7</Text>
+                <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
               </TouchableOpacity>
               
+              <Text style={localStyles.appIntroText}>
+                A solar system themed trivia application featuring a 1990s aesthetic. 
+                Demonstrates complex state management and custom font integration.
+              </Text>
+
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+              </ScrollView>
+
+              {/* APP 2: EXPO TODO */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
-                onPress={() => window.open('https://github.com/s-aryafreya', '_blank')}
+                onPress={() => window.open('https://s-aryafreya.github.io/expotodoapp/', '_blank')}
               >
-                <Text style={localStyles.linkText}>{">"} View Pawmate UI Case Study</Text>
+                <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
               </TouchableOpacity>
+
+              <Text style={localStyles.appIntroText}>
+                A clean, functional task manager built with Expo. 
+                Focuses on persistent storage and intuitive UI interactions.
+              </Text>
+
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+              </ScrollView>
+
+              {/* APP 3: EXERCISE APP */}
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => window.open('https://s-aryafreya.github.io/exercise-app/', '_blank')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
+              </TouchableOpacity>
+
+              <Text style={localStyles.appIntroText}>
+                A mobile-first workout tracker optimized for injury management. 
+                Integrated tracking for recovery and performance metrics.
+              </Text>
+
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
+              </ScrollView>
             </RetroWindow>
 
             <RetroWindow title="terminal.bat">
               <Text style={localStyles.bodyText}>
                 System Initialized...{"\n"}
-                Build v0.8.0 Active. All modules stable.
+                Build v0.9.0 Active. All modules stable.
               </Text>
             </RetroWindow>
 
@@ -186,6 +236,18 @@ const localStyles = StyleSheet.create({
     fontFamily: 'W95FA',
     fontSize: 12,
   },
+  appIntroText: {
+    fontFamily: 'W95FA',
+    fontSize: 12,
+    color: '#A30262',
+    lineHeight: 18,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    padding: 8,
+    borderLeftWidth: 3,
+    borderLeftColor: '#d0a0a3',
+  },
   footer: {
     marginTop: 40,
     paddingTop: 20,
@@ -195,5 +257,24 @@ const localStyles = StyleSheet.create({
     fontFamily: 'W95FA',
     color: '#d0a0a3',
     fontSize: 10,
+  },
+  carouselContainer: {
+    marginTop: 5,
+    marginBottom: 25,
+    paddingBottom: 10,
+  },
+  screenshotCard: {
+    width: 200, 
+    height: 130,
+    marginRight: 15,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#d0a0a3',
+    padding: 3,
+  },
+  appScreenshot: {
+    width: '100%',     // Fills the width of the card
+    height: 122,       // Explicit height in pixels
+    backgroundColor: '#d0a0a3', // Black background so 'contain' looks like a screen
   }
 });

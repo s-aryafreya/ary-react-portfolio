@@ -3,12 +3,11 @@
     "name": "ary-react-portfolio",
     "slug": "ary-react-portfolio",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "experiments": {
-      "baseUrl": "/ary-react-portfolio"
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "bundler": "metro",
+      "baseUrl": "/ary-react-portfolio" 
     },
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -24,11 +23,6 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
-    },
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "output": "single",
-      "bundler": "metro"
     },
     "plugins": [
       "expo-font"

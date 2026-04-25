@@ -2,7 +2,7 @@
   "name": "ary-react-portfolio",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://s-aryafreya.github.io/ary-react-portfolio",
+  "homepage": ".",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
