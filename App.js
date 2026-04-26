@@ -101,13 +101,13 @@ export default function App() {
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/q1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/q2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/q3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
               </ScrollView>
 
@@ -123,13 +123,13 @@ export default function App() {
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/td1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/td2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/td3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
               </ScrollView>
 
@@ -145,16 +145,16 @@ export default function App() {
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/ex1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/ex2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/ex3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
                 <View style={localStyles.screenshotCard}>
-                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex4.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/master/assets/ex4.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
                 </View>
               </ScrollView>
             </RetroWindow>
