@@ -6,7 +6,8 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "output": "single",
-      "bundler": "metro"
+      "bundler": "metro",
+      "baseUrl": "/ary-react-portfolio/"
     },
     "splash": {
       "image": "./assets/splash-icon.png",
