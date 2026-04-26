@@ -100,6 +100,8 @@ export default function App() {
 
             {/* PROJECTS */}
             <RetroWindow title="projects.exe">
+  
+              {/* PROJECT 1: RETRO QUIZ */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
                 onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
@@ -110,34 +112,62 @@ export default function App() {
                 A solar system themed trivia application featuring a 1990s aesthetic. 
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/q3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
               </ScrollView>
 
+              {/* PROJECT 2: TODO LIST */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
                 onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/')}
               >
                 <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
               </TouchableOpacity>
+              <Text style={localStyles.appIntroText}>
+                A simple ToDo list creator to help track tasks and show completed ones. 
+              </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/td3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
               </ScrollView>
 
+              {/* PROJECT 3: EXERCISE APP */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
                 onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
               >
                 <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
               </TouchableOpacity>
+              <Text style={localStyles.appIntroText}>
+                An exercise app with set workouts to show increments and time, with lapping. 
+              </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex1.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex2.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex3.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
+                <View style={localStyles.screenshotCard}>
+                  <Image source={{ uri: 'https://raw.githubusercontent.com/s-aryafreya/ary-react-portfolio/main/assets/ex4.png' }} style={localStyles.appScreenshot} resizeMode='contain' />
+                </View>
               </ScrollView>
             </RetroWindow>
 
