@@ -10,16 +10,17 @@ import RetroWindow from './components/RetroWindow';
 
 // Assets
 import bgImage from './assets/smoon_bg.png';
-import qim1 from './assets/q1.png';
-import qim2 from './assets/q2.png';
-import qim3 from './assets/q3.png';
-import tdim1 from './assets/td1.png';
-import tdim2 from './assets/td2.png';
-import tdim3 from './assets/td3.png';
-import exim1 from './assets/ex1.png';
-import exim2 from './assets/ex2.png';
-import exim3 from './assets/ex3.png';
-import exim4 from './assets/ex4.png';
+// Instead of importing, use URI references:
+const qim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q1.png' };
+const qim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q2.png' };
+const qim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q3.png' };
+const tdim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td1.png' };
+const tdim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td2.png' };
+const tdim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td3.png' };
+const exim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex1.png' };
+const exim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex2.png' };
+const exim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex3.png' };
+const exim4 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex4.png' };
 
 
 export default function App() {
