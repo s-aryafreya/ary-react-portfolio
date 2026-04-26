@@ -3,47 +3,40 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default function Header() {
     const [time, setTime] = useState("");
-    const [weather, setWeather] = useState("loading...");
+    const [date, setDate] = useState("");
 
     useEffect(() => {
-        // Live Clock Logic
-        const timer = setInterval(() => {
+        const updateDateTime = () => {
             const now = new Date();
+            
+            // Format: 10:30:05 PM
             setTime(now.toLocaleTimeString([], { 
                 hour: '2-digit', 
                 minute: '2-digit', 
                 second: '2-digit' 
             }));
-        }, 1000);
 
-        /**
-         * WEB-SAFE FIX: 
-         * We use format=3 for a clean string. 
-         * Note: Browsers may still block wttr.in due to CORS 
-         * depending on your GitHub Pages security settings.
-         */
-        fetch('https://wttr.in/Orlando?format=3')
-            .then(res => {
-                if (!res.ok) throw new Error('Network response was not ok');
-                return res.text();
-            })
-            .then(data => {
-                // Returns "orlando: clear +75°f"
-                setWeather(data.trim().toLowerCase());
-            })
-            .catch(() => {
-                setWeather("weather offline");
-            });
+            // Format: APR 25, 2026
+            setDate(now.toLocaleDateString([], { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            }));
+        };
+
+        // Initial call and then set interval
+        updateDateTime();
+        const timer = setInterval(updateDateTime, 1000);
 
         return () => clearInterval(timer);
     }, []);
 
     return (
-        <View style={styles.headerContainer}>
+        <View style={styles.header}>
             <Text style={styles.logo}>🪐 saturnianmoons</Text>
             <View style={styles.statusContainer}>
                 <Text style={styles.status}>
-                    {time} {weather !== "" ? `| ${weather}` : ""}
+                    {date} | {time}
                 </Text>
             </View>
         </View>
@@ -51,7 +44,7 @@ export default function Header() {
 }
 
 const styles = StyleSheet.create({
-    headerContainer: {
+    header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
