@@ -7,8 +7,11 @@
       "favicon": "./assets/favicon.png",
       "output": "single",
       "bundler": "metro",
-      "baseUrl": "/ary-react-portfolio/" 
+      "baseUrl": "/ary-react-portfolio/"
     },
+    "assetBundlePatterns": [
+      "assets/**"
+    ],
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
