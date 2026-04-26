@@ -13,20 +13,14 @@ export default function Header() {
         }, 1000);
 
         /**
-         * FIX: We add 'User-Agent': 'curl' to the headers.
-         * This tricks the weather server into thinking it's a command line tool,
-         * forcing it to return ONLY the plain text you requested.
+         * WEB-SAFE FIX: We remove the 'User-Agent' and 'headers' entirely.
+         * Using format=3 gives us a clean "City: Condition Temp" string 
+         * that works in browsers without causing CORS errors.
          */
-        fetch('https://wttr.in/Orlando?format=%C+%t', {
-            headers: {
-                'Accept': 'text/plain',
-                // This is the "magic" line that stops the HTML code from appearing
-                'User-Agent': 'curl' 
-            }
-        })
+        fetch('https://wttr.in/Orlando?format=3')
         .then(res => res.text())
         .then(data => {
-            // Clean up any extra whitespace and set state
+            // This will look like "Orlando: Clear +75°F"
             setWeather(data.trim().toLowerCase());
         })
         .catch(() => setWeather("weather offline"));
