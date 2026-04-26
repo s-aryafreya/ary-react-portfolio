@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image, Linking } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image, Linking, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 
@@ -24,6 +24,28 @@ import exim4 from './assets/ex4.png';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+  
+  // Form State
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [error, setError] = useState(null);
+
+  // Hover State for Button Interactivity
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleSend = () => {
+    if (!form.name || !form.email || !form.message) {
+      setError("Error: All fields must be initialized before transmission.");
+      return;
+    }
+    if (!form.email.includes('@')) {
+      setError("Error: Invalid return address (Email).");
+      return;
+    }
+    
+    setError(null);
+    alert("Message sent to saturnianmoons.exe successfully!");
+    setForm({ name: '', email: '', message: '' });
+  };
 
   useEffect(() => {
     async function loadFonts() {
@@ -53,7 +75,6 @@ export default function App() {
       <ScrollView contentContainerStyle={localStyles.scrollWrapper}>
         <StatusBar style="auto" />
         
-        {/* Main Container */}
         <View style={localStyles.mainContainer}>
           <Header />
           
@@ -64,7 +85,6 @@ export default function App() {
             </Text>
           </View>
 
-          {/* Windows Section */}
           <View style={localStyles.windowContainer}>
             
             {/* ABOUT ME */}
@@ -80,8 +100,6 @@ export default function App() {
 
             {/* PROJECTS */}
             <RetroWindow title="projects.exe">
-              
-              {/* APP 1: RETRO QUIZ */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
                 onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
@@ -90,7 +108,6 @@ export default function App() {
               </TouchableOpacity>
               <Text style={localStyles.appIntroText}>
                 A solar system themed trivia application featuring a 1990s aesthetic. 
-                Demonstrates complex state management and custom font integration.
               </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
                 <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
@@ -98,42 +115,64 @@ export default function App() {
                 <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
               </ScrollView>
 
-              {/* APP 2: EXPO TODO */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
                 onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/')}
               >
                 <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
               </TouchableOpacity>
-              <Text style={localStyles.appIntroText}>
-                A clean, functional task manager built with Expo. 
-                Focuses on persistent storage and intuitive UI interactions.
-              </Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
                 <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
                 <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
                 <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
               </ScrollView>
-
-              {/* APP 3: EXERCISE APP */}
-              <TouchableOpacity 
-                style={localStyles.linkAction}
-                onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
-              >
-                <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
-              </TouchableOpacity>
-              <Text style={localStyles.appIntroText}>
-                A mobile-first workout tracker optimized for injury management. 
-                Integrated tracking for recovery and performance metrics.
-              </Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-              </ScrollView>
             </RetroWindow>
 
+            {/* CONTACT FORM */}
+            <RetroWindow title="contact_form.exe">
+              <Text style={localStyles.statusText}>Send a message to the system:</Text>
+              
+              <TextInput
+                style={localStyles.input}
+                placeholder="Name"
+                placeholderTextColor="#999"
+                value={form.name}
+                onChangeText={(text) => setForm({...form, name: text})}
+              />
+              
+              <TextInput
+                style={localStyles.input}
+                placeholder="Email"
+                placeholderTextColor="#999"
+                value={form.email}
+                onChangeText={(text) => setForm({...form, email: text})}
+                keyboardType="email-address"
+              />
+              
+              <TextInput
+                style={[localStyles.input, { height: 80 }]}
+                placeholder="Message"
+                placeholderTextColor="#999"
+                value={form.message}
+                onChangeText={(text) => setForm({...form, message: text})}
+                multiline
+              />
+
+              {error && <Text style={localStyles.errorText}>{error}</Text>}
+
+              <TouchableOpacity 
+                style={[
+                    localStyles.sendButton, 
+                    { backgroundColor: isHovered ? '#b08083' : '#d0a0a3' } 
+                ]} 
+                onPress={handleSend}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <Text style={localStyles.sendButtonText}>SEND</Text>
+              </TouchableOpacity>
+            </RetroWindow>
+            
             {/* TERMINAL */}
             <RetroWindow title="terminal.bat">
               <Text style={localStyles.bodyText}>
@@ -148,7 +187,6 @@ export default function App() {
             <Text style={localStyles.footerText}>© 2026 saturnianmoons.exe</Text>
           </View>
         </View>
-
       </ScrollView>
     </ImageBackground>
   );
@@ -269,5 +307,37 @@ const localStyles = StyleSheet.create({
   appScreenshot: {
     width: 194,
     height: 122,
+  },
+  input: {
+    backgroundColor: 'white',
+    borderWidth: 2,
+    borderTopColor: '#808080', 
+    borderLeftColor: '#808080',
+    borderBottomColor: '#ffffff',
+    borderRightColor: '#ffffff',
+    padding: 8,
+    fontFamily: 'W95FA',
+    fontSize: 12,
+    marginBottom: 10,
+    color: '#000',
+  },
+  sendButton: {
+    padding: 10,
+    borderWidth: 2,
+    borderColor: '#f8bbd0',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  sendButtonText: {
+    color: 'white',
+    fontFamily: 'W95FA',
+    fontSize: 14,
+  },
+  errorText: {
+    color: '#A30262',
+    fontFamily: 'W95FA',
+    fontSize: 10,
+    marginBottom: 10,
+    textAlign: 'center',
   }
 });
