@@ -5,9 +5,8 @@
     "version": "1.0.0",
     "web": {
       "favicon": "./assets/favicon.png",
-      "output": "single",
-      "bundler": "metro",
-      "baseUrl": ""
+      "output": "minimal",
+      "bundler": "metro"
     },
     "splash": {
       "image": "./assets/splash-icon.png",
