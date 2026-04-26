@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image, Linking } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import { Linking } from 'react-native';
@@ -11,16 +11,17 @@ import RetroWindow from './components/RetroWindow';
 // Assets
 import bgImage from './assets/smoon_bg.png';
 // Instead of importing, use URI references:
-const qim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q1.png' };
-const qim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q2.png' };
-const qim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/q3.png' };
-const tdim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td1.png' };
-const tdim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td2.png' };
-const tdim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/td3.png' };
-const exim1 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex1.png' };
-const exim2 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex2.png' };
-const exim3 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex3.png' };
-const exim4 = { uri: 'https://s-aryafreya.github.io/ary-react-portfolio/assets/ex4.png' };
+// Assets - Standard Import Method
+import qim1 from './assets/q1.png';
+import qim2 from './assets/q2.png';
+import qim3 from './assets/q3.png';
+import tdim1 from './assets/td1.png';
+import tdim2 from './assets/td2.png';
+import tdim3 from './assets/td3.png';
+import exim1 from './assets/ex1.png';
+import exim2 from './assets/ex2.png';
+import exim3 from './assets/ex3.png';
+import exim4 from './assets/ex4.png';
 
 
 export default function App() {
@@ -80,62 +81,62 @@ export default function App() {
 
             <RetroWindow title="projects.exe">
               {/* APP 1: RETRO QUIZ */}
-              <TouchableOpacity 
-                style={localStyles.linkAction}
-                onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
-              >
-                <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
-              </TouchableOpacity>
-              
-              <Text style={localStyles.appIntroText}>
-                A solar system themed trivia application featuring a 1990s aesthetic. 
-                Demonstrates complex state management and custom font integration.
-              </Text>
+                <TouchableOpacity 
+                  style={localStyles.linkAction}
+                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
+                >
+                  <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
+                </TouchableOpacity>
 
-              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-              </ScrollView>
+                <Text style={localStyles.appIntroText}>
+                  A solar system themed trivia application featuring a 1990s aesthetic. 
+                  Demonstrates complex state management and custom font integration.
+                </Text>
 
-              {/* APP 2: EXPO TODO */}
-              <TouchableOpacity 
-                style={localStyles.linkAction}
-                onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/', '_blank')}
-              >
-                <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
-              </TouchableOpacity>
+                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                  <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                </ScrollView>
 
-              <Text style={localStyles.appIntroText}>
-                A clean, functional task manager built with Expo. 
-                Focuses on persistent storage and intuitive UI interactions.
-              </Text>
+                {/* APP 2: EXPO TODO */}
+                <TouchableOpacity 
+                  style={localStyles.linkAction}
+                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/')}
+                >
+                  <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
+                </TouchableOpacity>
 
-              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-              </ScrollView>
+                <Text style={localStyles.appIntroText}>
+                  A clean, functional task manager built with Expo. 
+                  Focuses on persistent storage and intuitive UI interactions.
+                </Text>
 
-              {/* APP 3: EXERCISE APP */}
-              <TouchableOpacity 
-                style={localStyles.linkAction}
-                onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/', '_blank')}
-              >
-                <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
-              </TouchableOpacity>
+                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                  <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                </ScrollView>
 
-              <Text style={localStyles.appIntroText}>
-                A mobile-first workout tracker optimized for injury management. 
-                Integrated tracking for recovery and performance metrics.
-              </Text>
+                {/* APP 3: EXERCISE APP */}
+                <TouchableOpacity 
+                  style={localStyles.linkAction}
+                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
+                >
+                  <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
+                </TouchableOpacity>
 
-              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain'></Image></View>
-              </ScrollView>
+                <Text style={localStyles.appIntroText}>
+                  A mobile-first workout tracker optimized for injury management. 
+                  Integrated tracking for recovery and performance metrics.
+                </Text>
+
+                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                  <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                  <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                </ScrollView>
             </RetroWindow>
 
             <RetroWindow title="terminal.bat">
