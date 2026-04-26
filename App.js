@@ -272,9 +272,10 @@ const localStyles = StyleSheet.create({
     borderColor: '#d0a0a3',
     padding: 3,
   },
+  // Change this in your localStyles
   appScreenshot: {
-    width: '100%',     // Fills the width of the card
-    height: 122,       // Explicit height in pixels
-    backgroundColor: '#d0a0a3', // Black background so 'contain' looks like a screen
+    width: 194,  // Use a fixed number slightly smaller than the 200px card
+    height: 122,
+    backgroundColor: '#d0a0a3', 
   }
 });
