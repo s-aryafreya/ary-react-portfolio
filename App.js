@@ -126,6 +126,19 @@ export default function App() {
                 <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
                 <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
               </ScrollView>
+
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
+              </TouchableOpacity>
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+              </ScrollView>
             </RetroWindow>
 
             {/* CONTACT FORM */}
