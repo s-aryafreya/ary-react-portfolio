@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image, Linking } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
-import { Linking } from 'react-native';
 
 // Components
 import Header from './components/Header';
