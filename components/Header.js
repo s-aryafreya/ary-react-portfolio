@@ -9,21 +9,31 @@ export default function Header() {
         // Live Clock Logic
         const timer = setInterval(() => {
             const now = new Date();
-            setTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+            setTime(now.toLocaleTimeString([], { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            }));
         }, 1000);
 
         /**
-         * WEB-SAFE FIX: We remove the 'User-Agent' and 'headers' entirely.
-         * Using format=3 gives us a clean "City: Condition Temp" string 
-         * that works in browsers without causing CORS errors.
+         * WEB-SAFE FIX: 
+         * We use format=3 for a clean string. 
+         * Note: Browsers may still block wttr.in due to CORS 
+         * depending on your GitHub Pages security settings.
          */
         fetch('https://wttr.in/Orlando?format=3')
-        .then(res => res.text())
-        .then(data => {
-            // This will look like "Orlando: Clear +75°F"
-            setWeather(data.trim().toLowerCase());
-        })
-        .catch(() => setWeather("weather offline"));
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.text();
+            })
+            .then(data => {
+                // Returns "orlando: clear +75°f"
+                setWeather(data.trim().toLowerCase());
+            })
+            .catch(() => {
+                setWeather("weather offline");
+            });
 
         return () => clearInterval(timer);
     }, []);
@@ -31,9 +41,11 @@ export default function Header() {
     return (
         <View style={styles.headerContainer}>
             <Text style={styles.logo}>🪐 saturnianmoons</Text>
-            <Text style={styles.status}>
-                {time} | {weather}
-            </Text>
+            <View style={styles.statusContainer}>
+                <Text style={styles.status}>
+                    {time} {weather !== "" ? `| ${weather}` : ""}
+                </Text>
+            </View>
         </View>
     );
 }
@@ -53,6 +65,9 @@ const styles = StyleSheet.create({
         color: '#A30262', 
         fontSize: 14,
         fontFamily: 'W95FA' 
+    },
+    statusContainer: {
+        flexDirection: 'row',
     },
     status: { 
         color: '#A30262', 

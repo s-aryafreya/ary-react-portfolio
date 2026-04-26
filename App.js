@@ -7,10 +7,10 @@ import * as Font from 'expo-font';
 import Header from './components/Header';
 import RetroWindow from './components/RetroWindow';
 
-// Assets
+// Assets - Background
 import bgImage from './assets/smoon_bg.png';
-// Instead of importing, use URI references:
-// Assets - Standard Import Method
+
+// Assets - App Screenshots
 import qim1 from './assets/q1.png';
 import qim2 from './assets/q2.png';
 import qim3 from './assets/q3.png';
@@ -21,7 +21,6 @@ import exim1 from './assets/ex1.png';
 import exim2 from './assets/ex2.png';
 import exim3 from './assets/ex3.png';
 import exim4 from './assets/ex4.png';
-
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -34,8 +33,9 @@ export default function App() {
         });
       } catch (e) {
         console.warn("Font loading failed, falling back to system font.");
+      } finally {
+        setFontsLoaded(true);
       }
-      setFontsLoaded(true);
     }
     loadFonts();
   }, []);
@@ -53,7 +53,7 @@ export default function App() {
       <ScrollView contentContainerStyle={localStyles.scrollWrapper}>
         <StatusBar style="auto" />
         
-        {/* Main Glassmorphism Container */}
+        {/* Main Container */}
         <View style={localStyles.mainContainer}>
           <Header />
           
@@ -67,77 +67,74 @@ export default function App() {
           {/* Windows Section */}
           <View style={localStyles.windowContainer}>
             
+            {/* ABOUT ME */}
             <RetroWindow title="about-me.txt">
               <Text style={localStyles.statusText}>Sport Club Council President @ UCF</Text>
               <Text style={localStyles.bodyText}>
-                Hello my name is Salem, but everyone calls me Ary, I'm am about to be a senior @ UCF and play for the D1 Women's Ultimate Club
-                {"\n"}
-                {"\n"}
-                Specializing web development, game development, competitive athletics, risk and injury management. Adult CPR Certified. 
+                Hello my name is Salem, but everyone calls me Ary. I am about to be a senior @ UCF and play for the D1 Women's Ultimate Club.
+                {"\n"}{"\n"}
+                Specializing in web development, game development, competitive athletics, risk and injury management. Adult CPR Certified. 
                 Focusing on creativity and leadership in all avenues.
               </Text>
             </RetroWindow>
 
+            {/* PROJECTS */}
             <RetroWindow title="projects.exe">
+              
               {/* APP 1: RETRO QUIZ */}
-                <TouchableOpacity 
-                  style={localStyles.linkAction}
-                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
-                >
-                  <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
-                </TouchableOpacity>
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
+              </TouchableOpacity>
+              <Text style={localStyles.appIntroText}>
+                A solar system themed trivia application featuring a 1990s aesthetic. 
+                Demonstrates complex state management and custom font integration.
+              </Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+              </ScrollView>
 
-                <Text style={localStyles.appIntroText}>
-                  A solar system themed trivia application featuring a 1990s aesthetic. 
-                  Demonstrates complex state management and custom font integration.
-                </Text>
+              {/* APP 2: EXPO TODO */}
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
+              </TouchableOpacity>
+              <Text style={localStyles.appIntroText}>
+                A clean, functional task manager built with Expo. 
+                Focuses on persistent storage and intuitive UI interactions.
+              </Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+              </ScrollView>
 
-                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                  <View style={localStyles.screenshotCard}><Image source={qim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={qim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={qim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                </ScrollView>
-
-                {/* APP 2: EXPO TODO */}
-                <TouchableOpacity 
-                  style={localStyles.linkAction}
-                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/')}
-                >
-                  <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
-                </TouchableOpacity>
-
-                <Text style={localStyles.appIntroText}>
-                  A clean, functional task manager built with Expo. 
-                  Focuses on persistent storage and intuitive UI interactions.
-                </Text>
-
-                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                  <View style={localStyles.screenshotCard}><Image source={tdim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={tdim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={tdim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                </ScrollView>
-
-                {/* APP 3: EXERCISE APP */}
-                <TouchableOpacity 
-                  style={localStyles.linkAction}
-                  onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
-                >
-                  <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
-                </TouchableOpacity>
-
-                <Text style={localStyles.appIntroText}>
-                  A mobile-first workout tracker optimized for injury management. 
-                  Integrated tracking for recovery and performance metrics.
-                </Text>
-
-                <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
-                  <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                  <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
-                </ScrollView>
+              {/* APP 3: EXERCISE APP */}
+              <TouchableOpacity 
+                style={localStyles.linkAction}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/')}
+              >
+                <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
+              </TouchableOpacity>
+              <Text style={localStyles.appIntroText}>
+                A mobile-first workout tracker optimized for injury management. 
+                Integrated tracking for recovery and performance metrics.
+              </Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={true} style={localStyles.carouselContainer}>
+                <View style={localStyles.screenshotCard}><Image source={exim1} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim2} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim3} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+                <View style={localStyles.screenshotCard}><Image source={exim4} style={localStyles.appScreenshot} resizeMode='contain' /></View>
+              </ScrollView>
             </RetroWindow>
 
+            {/* TERMINAL */}
             <RetroWindow title="terminal.bat">
               <Text style={localStyles.bodyText}>
                 System Initialized...{"\n"}
@@ -177,10 +174,6 @@ const localStyles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#f8bbd0',
     padding: 25,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
   },
   banner: {
     backgroundColor: '#d0a0a3',
@@ -210,7 +203,6 @@ const localStyles = StyleSheet.create({
   },
   windowContainer: {
     width: '100%',
-    gap: 15, 
   },
   statusText: {
     color: '#A30262',
@@ -263,7 +255,6 @@ const localStyles = StyleSheet.create({
   carouselContainer: {
     marginTop: 5,
     marginBottom: 25,
-    paddingBottom: 10,
   },
   screenshotCard: {
     width: 200, 
@@ -272,12 +263,11 @@ const localStyles = StyleSheet.create({
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: '#d0a0a3',
-    padding: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  // Change this in your localStyles
   appScreenshot: {
-    width: 194,  // Use a fixed number slightly smaller than the 200px card
+    width: 194,
     height: 122,
-    backgroundColor: '#d0a0a3', 
   }
 });
