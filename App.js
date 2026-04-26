@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
+import { Linking } from 'react-native';
 
 // Components
 import Header from './components/Header';
@@ -80,7 +81,7 @@ export default function App() {
               {/* APP 1: RETRO QUIZ */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
-                onPress={() => window.open('https://s-aryafreya.github.io/quiz-app/', '_blank')}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/quiz-app/')}
               >
                 <Text style={localStyles.linkText}>{">"} View Retro Quiz v0.7 App</Text>
               </TouchableOpacity>
@@ -99,7 +100,7 @@ export default function App() {
               {/* APP 2: EXPO TODO */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
-                onPress={() => window.open('https://s-aryafreya.github.io/expotodoapp/', '_blank')}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/expotodoapp/', '_blank')}
               >
                 <Text style={localStyles.linkText}>{">"} View Expo ToDo List App</Text>
               </TouchableOpacity>
@@ -118,7 +119,7 @@ export default function App() {
               {/* APP 3: EXERCISE APP */}
               <TouchableOpacity 
                 style={localStyles.linkAction}
-                onPress={() => window.open('https://s-aryafreya.github.io/exercise-app/', '_blank')}
+                onPress={() => Linking.openURL('https://s-aryafreya.github.io/exercise-app/', '_blank')}
               >
                 <Text style={localStyles.linkText}>{">"} View Exercise App</Text>
               </TouchableOpacity>
